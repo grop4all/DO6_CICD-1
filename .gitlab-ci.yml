@@ -6,4 +6,7 @@ stages:
 build-job:
   stage: build
   script:
-    - cd src
+    - cd src/cat
+    - make build
+    - cd ../grep
+    - make build
