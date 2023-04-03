@@ -3,8 +3,9 @@ stages:
   - linter
   - test
 
-build-job:
+build:
   stage: build
+  tags: build
   script:
     - cd src/cat
     - make build
