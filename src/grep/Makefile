@@ -9,9 +9,9 @@ endif
 
 .PHONY: all clean test s21_grep
 
-all: s21_grep test clean
+all: build test clean
 
-s21_grep: s21_grep.c
+build: s21_grep.c
 	$(CC) $(CFLAGS) s21_grep.c -g -lpcre $(LINUX_LIBS) -o s21_grep
 
 test: s21_grep
