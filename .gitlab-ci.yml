@@ -1,0 +1,9 @@
+stages:
+  - build
+  - linter
+  - test
+
+build-job:
+  stage: build
+  stript:
+    - cd src
