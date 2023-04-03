@@ -5,5 +5,5 @@ stages:
 
 build-job:
   stage: build
-  stript:
+  script:
     - cd src
