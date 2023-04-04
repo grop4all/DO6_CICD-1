@@ -3,7 +3,7 @@ stages:
   - linter
   - test
 
-build:
+build-job:
   stage: build
   script:
     - echo "I"
