@@ -4,7 +4,7 @@ Flag:= -Wall -Werror -Werror -std=c11
 
 SRC:=$(shell find *.[ch])
 
-file:= s21_cats
+file:= s21_cat
 
 all: build test clean
 
