@@ -8,11 +8,8 @@ build-job:
   script:
     - rm -rf artifacts
     - mkdir artifacts
-    - cd src/cat
-    - make build
-    - cd ../grep
-    - make build
-    - cd /
+    - (cd src/cat && make build)
+    - (cd src/grep && make build)
     - cp src/cat/s21_cat src/cat/s21_grep artifacts
   artifacts:
     paths:
