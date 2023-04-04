@@ -6,7 +6,24 @@ stages:
 build-job:
   stage: build
   script:
+    - rm -rf artifacts
+    - mkdir artifacts
     - cd src/cat
     - make build
     - cd ../grep
     - make build
+    - cp src/cat/s21_cat src/cat/s21_grep artifacts
+  artifacts:
+    paths:
+      - artifacts
+    expire_in: 30 days
+  only:
+    - develop
+
+linter-job:
+  stage: linter
+  script:
+  - cp materials/.clang-format src/cat
+  - cp materials/.clang-format src/grep
+  - clang-format -n src/cat/*.[ch]
+  - clang-format -n src/grep/*.[ch]
