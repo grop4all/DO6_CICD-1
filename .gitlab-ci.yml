@@ -10,7 +10,7 @@ build-job:
     - mkdir artifacts
     - (cd src/cat && make build)
     - (cd src/grep && make build)
-    - cp src/cat/s21_cat src/cat/s21_grep artifacts
+    - cp src/cat/s21_cat src/grep/s21_grep artifacts
   artifacts:
     paths:
       - artifacts
