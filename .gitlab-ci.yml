@@ -21,7 +21,7 @@ build-job:
 linter-job:
   stage: linter
   script:
-  - cp materials/.clang-format src/cat
-  - cp materials/.clang-format src/grep
-  - clang-format -n src/cat/*.[ch]
-  - clang-format -n src/grep/*.[ch]
+  - cp materials/linters/.clang-format src/cat
+  - cp materials/linters/.clang-format src/grep
+  - clang-format -n -Werror src/cat/*.[ch]
+  - clang-format -n -Werror src/grep/*.[ch]
