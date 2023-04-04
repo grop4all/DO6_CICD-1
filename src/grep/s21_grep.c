@@ -232,8 +232,7 @@ void s21_output_result(Flags flags, char *name_file, char *reg_exp) {
           }
         }
         if (flags.l) {
-          if (flags.count_files > 1 && !flags.c)
-            printf("%s\n", name_file);
+          if (flags.count_files > 1 && !flags.c) printf("%s\n", name_file);
           pcre_free((void *)pcre);
           my_free = 1;
           break;
@@ -275,8 +274,7 @@ void s21_output_result(Flags flags, char *name_file, char *reg_exp) {
     }
     free(str);
   }
-  if (file != NULL)
-    fclose(file);
+  if (file != NULL) fclose(file);
 }
 
 void check_e_flags(char **argv, char **mas_with_reg_exp, int *i, int *j) {
@@ -331,6 +329,5 @@ void check_f_flag(char **argv, char **mas_with_reg_exp, int *i, Flags flags) {
       }
     }
   }
-  if (file != NULL)
-    fclose(file);
+  if (file != NULL) fclose(file);
 }
