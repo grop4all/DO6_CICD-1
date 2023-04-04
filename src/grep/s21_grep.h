@@ -35,4 +35,4 @@ void s21_output_result(Flags flags, char *name_file, char *reg_exp);
 void check_e_flags(char **argv, char **mas_with_reg_exp, int *i, int *j);
 void check_f_flag(char **argv, char **mas_with_reg_exp, int *i, Flags flags);
 
-#endif  //  SRC_GREP_S21_GREP_H_
+#endif //  SRC_GREP_S21_GREP_H_

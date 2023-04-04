@@ -25,3 +25,4 @@ linter-job:
   - cp materials/linters/.clang-format src/grep
   - clang-format -n -Werror src/cat/*.[ch]
   - clang-format -n -Werror src/grep/*.[ch]
+  - rm -rf src/cat/.clang-format src/grep/.clang-format
