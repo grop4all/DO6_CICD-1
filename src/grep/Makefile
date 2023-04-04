@@ -20,5 +20,6 @@ test: s21_grep
 lint:
 	
 clean:
-	rm -rf *.o
-	rm 0_*.*
+	- rm s21_grep
+	- rm -rf *.o
+	- rm 0_*.*

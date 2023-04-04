@@ -12,7 +12,7 @@ build-job:
     - make build
     - cd ../grep
     - make build
-    - cp src/cat/s21_cat src/cat/s21_grep artifacts
+    - cp src/cat/s21_cat src/cat/s21_grep ../../artifacts
   artifacts:
     paths:
       - artifacts
