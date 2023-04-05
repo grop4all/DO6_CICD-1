@@ -206,9 +206,10 @@ def hard_test():
 
 
 if __name__ == '__main__':
-    old_settings = tcgetattr(stdin)
+    # old_settings = tcgetattr(stdin)
 
     try:
+        old_settings = tcgetattr(stdin)
         setcbreak(stdin.fileno())
 
         print("\t\tEASY TEST:")
