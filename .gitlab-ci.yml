@@ -2,6 +2,7 @@ stages:
   - build
   - linter
   - test
+  - deploy
 
 build-job:
   stage: build
@@ -17,6 +18,8 @@ build-job:
     expire_in: 30 days
   only:
     - develop
+  after_script:
+    - telegrambot_send_message.sh $(CI_JOB_NAME)
 
 linter-job:
   stage: linter
@@ -30,6 +33,8 @@ linter-job:
     - (cd src/grep && make leaks)
   only:
     - develop
+  after_script:
+    - telegrambot_send_message.sh $(CI_JOB_NAME)
 
 test-job:
   stage: test
@@ -40,4 +45,10 @@ test-job:
     - (cd src/grep && make clean)
   only:
     - develop
-  
+  after_script:
+    - telegrambot_send_message.sh $(CI_JOB_NAME)
+
+
+# deploy-job:
+#   stage: deploy
+#   script:
