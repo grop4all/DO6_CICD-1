@@ -14,7 +14,7 @@ all: build test clean
 build: s21_grep.c
 	$(CC) $(CFLAGS) s21_grep.c -g -lpcre $(LINUX_LIBS) -o s21_grep
 
-test: buld s21_grep
+test: build s21_grep
 	python3 *.py
 
 lint:
