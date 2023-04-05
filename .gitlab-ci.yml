@@ -19,7 +19,7 @@ build-job:
   only:
     - develop
   after_script:
-    - ./telegrambot_send_message.sh $CI_JOB_NAME $$CI_PROJECT_NAME $CI_PROJECT_URL $CI_PIPELINE_ID $CI_COMMIT_REF_SLUG
+    - ./telegrambot_send_message.sh $CI_JOB_NAME $CI_PROJECT_NAME $CI_PROJECT_URL $CI_PIPELINE_ID $CI_COMMIT_REF_SLUG
 
 linter-job:
   stage: linter
@@ -34,7 +34,7 @@ linter-job:
   only:
     - develop
   after_script:
-    - ./telegrambot_send_message.sh $CI_JOB_NAME $$CI_PROJECT_NAME $CI_PROJECT_URL $CI_PIPELINE_ID $CI_COMMIT_REF_SLUG
+    - ./telegrambot_send_message.sh $CI_JOB_NAME $CI_PROJECT_NAME $CI_PROJECT_URL $CI_PIPELINE_ID $CI_COMMIT_REF_SLUG
 
 test-job:
   stage: test
@@ -46,7 +46,7 @@ test-job:
   only:
     - develop
   after_script:
-    - ./telegrambot_send_message.sh $CI_JOB_NAME $$CI_PROJECT_NAME $CI_PROJECT_URL $CI_PIPELINE_ID $CI_COMMIT_REF_SLUG
+    - ./telegrambot_send_message.sh $CI_JOB_NAME $CI_PROJECT_NAME $CI_PROJECT_URL $CI_PIPELINE_ID $CI_COMMIT_REF_SLUG
 
 
 # deploy-job:
