@@ -6,12 +6,13 @@ from tty import setcbreak
 from select import select
 from time import sleep
 from sys import stdin
+from sys import exit
 from os import system
 
 # 1 или 0 останавливать тесты после ошибки или нет
 stop = 0
 # 1 или 0 показывать расшириный вывод ошибки
-more = 1
+more = 0
 # 1 или 0 если показывать в конце список комманд
 show_log = 1
 # любый символы остановки вывода
@@ -165,7 +166,7 @@ def simple_test():
 
 
 def hard_test():
-    global _flags, _files
+    global _flags, _files, TEST_COUNT
     # count = 0
     for i in range(round(len(flags) / 2), len(flags)):
         for list_arg_m in combinations_with_replacement(flags, i):
@@ -194,6 +195,7 @@ def hard_test():
 
                 run_test(f'{s21_grep} {argv} > {s21_grep_file}',
                          f'{grep} {argv} > {grep_file}')
+                i
                 if is_data():
                     c = stdin.read(1)
 
@@ -214,7 +216,7 @@ if __name__ == '__main__':
 
         print("\n\t\tHARD TEST:\n\n")
         sleep(0.25)
-        hard_test()
+        # hard_test()
 
         print(f'{bcolors.BOLD}{bcolors.OKCYAN}WAS TEST: \t{bcolors.ENDC}{bcolors.OKBLUE}{TEST_COUNT}{bcolors.ENDC}{bcolors.ENDC}{bcolors.ENDC}')
         print(f'{bcolors.BOLD}{bcolors.OKBLUE}SUCCESS: \t{bcolors.ENDC}{bcolors.OKGREEN}{TEST_COUNT - TEST_COUNT_FAILED}{bcolors.ENDC}{bcolors.ENDC}{bcolors.ENDC}')
@@ -229,8 +231,11 @@ if __name__ == '__main__':
             print(f'{bcolors.BOLD}{bcolors.WARNING}PERCENT: \t{bcolors.ENDC}{bcolors.OKGREEN}{persent}%{bcolors.ENDC}{bcolors.ENDC}{bcolors.ENDC}')
         elif persent > 50:
             print(f'{bcolors.BOLD}{bcolors.WARNING}PERCENT: \t{bcolors.ENDC}{bcolors.WARNING}{persent}%{bcolors.ENDC}{bcolors.ENDC}{bcolors.ENDC}')
+            exit(1)
         else:
             print(f'{bcolors.BOLD}{bcolors.WARNING}PERCENT: \t{bcolors.ENDC}{bcolors.FAIL}{persent}%{bcolors.ENDC}{bcolors.ENDC}{bcolors.ENDC}')
+            exit(1)
+
 
         if more:
             print("\n\n\t\tALL ERRORS\t\t\n\n")

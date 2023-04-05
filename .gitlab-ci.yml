@@ -21,8 +21,23 @@ build-job:
 linter-job:
   stage: linter
   script:
-  - cp materials/linters/.clang-format src/cat
-  - cp materials/linters/.clang-format src/grep
-  - clang-format -n -Werror src/cat/*.[ch]
-  - clang-format -n -Werror src/grep/*.[ch]
-  - rm -rf src/cat/.clang-format src/grep/.clang-format
+    - cp materials/linters/.clang-format src/cat
+    - cp materials/linters/.clang-format src/grep
+    - clang-format -n -Werror src/cat/*.[ch]
+    - clang-format -n -Werror src/grep/*.[ch]
+    - rm -rf src/cat/.clang-format src/grep/.clang-format
+    - (cd src/cat && make leaks)
+    - (cd src/grep && make leaks)
+  only:
+    - develop
+
+test-job:
+  stage: test
+  script:
+    - (cd src/cat && make test)
+    - (cd src/cat && make clean)
+    - (cd src/grep && make test)
+    - (cd src/grep && make clean)
+  only:
+    - develop
+  

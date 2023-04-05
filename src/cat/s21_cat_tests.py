@@ -2,6 +2,7 @@
 from itertools import combinations_with_replacement
 from random import shuffle
 from os import system
+from sys import exit
 
 my_cat = "./s21_cat"
 cat = "cat"
@@ -50,7 +51,9 @@ def check_files(a, b):
                 print(b[max(0, i-50):min(len(b), i+50)])
                 print("===============================")
                 print("Line:", count, " char:", i)
-                input("Press any key to continue:\n")
+                return 0
+        
+    
 
 
 for test in range(len(all_var)):
@@ -63,8 +66,10 @@ for test in range(len(all_var)):
             m_str = f'{func} {" ".join(cur_flags)} {" ".join(files)} > {testing_file+i+testing_file_format}'
             print("Command:", m_str)
             system(m_str)
-        check_files(testing_file+'0'+testing_file_format,
+        ans = check_files(testing_file+'0'+testing_file_format,
                     testing_file+'1'+testing_file_format)
-        print()
-
-system("rm -rf *.ntesting")
+        if (ans == 0):
+            print()
+            print("test faild")
+            system("rm -rf *.ntesting")
+            exit(1)

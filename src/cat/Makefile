@@ -12,7 +12,14 @@ build:
 	$(CC) $(Flag) $(SRC) -o $(file)
 
 test: build
-	s21_cat_tests.py
+	python3 s21_cat_tests.py
+
+lint:
+	clang-format -n -Werror *.[ch]
+
+leaks:
+	valgrind --leak-check=full  --show-leak-kinds=all --track-origins=yes ./$(file)
+
 
 clean:	
 	rm $(file)
