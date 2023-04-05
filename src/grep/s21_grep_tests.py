@@ -209,8 +209,8 @@ if __name__ == '__main__':
     # old_settings = tcgetattr(stdin)
 
     try:
-        old_settings = tcgetattr(stdin)
-        setcbreak(stdin.fileno())
+        
+        # setcbreak(stdin.fileno())
 
         print("\t\tEASY TEST:")
         simple_test()
@@ -243,4 +243,5 @@ if __name__ == '__main__':
             for i in range(len(test_error)):
                 run_test(*test_error[i])
     finally:
-        tcsetattr(stdin, TCSADRAIN, old_settings)
+        print()
+        # tcsetattr(stdin, TCSADRAIN, old_settings)
