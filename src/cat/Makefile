@@ -17,7 +17,7 @@ test: build
 lint:
 	clang-format -n -Werror *.[ch]
 
-leaks:
+leaks: build
 	valgrind --leak-check=full  --show-leak-kinds=all --track-origins=yes ./$(file)
 
 
