@@ -43,7 +43,7 @@ test-job:
     - (cd src/cat && make clean)
     - (cd src/grep && make test)
     - (cd src/grep && make clean)
-    - echo $GITLAB_USER_NAME
+    - whoami
   only:
     - develop
   after_script:
