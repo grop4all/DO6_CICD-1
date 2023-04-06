@@ -54,5 +54,5 @@ deploy-job:
   stage: deploy
   when: manual
   script:
-    - ./deploy
+    - ./deploy.sh
   
