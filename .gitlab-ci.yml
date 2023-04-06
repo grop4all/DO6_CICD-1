@@ -52,8 +52,7 @@ test-job:
 
 deploy-job:
   stage: deploy
+  when: manual
   script:
     - ./deploy
-  rules:
-    when: manual
-    allow_failure: true
+  
