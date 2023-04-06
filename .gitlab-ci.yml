@@ -53,3 +53,4 @@ test-job:
 # deploy-job:
 #   stage: deploy
 #   script:
+#   - scp builds/Xzr9CoBh/0/students/DO6_CICD.ID_356283/henschel_student.21_school.ru/DO6_CICD-1/artifacts/s21_cat builds/Xzr9CoBh/0/students/DO6_CICD.ID_356283/henschel_student.21_school.ru/DO6_CICD-1/artifacts/s21_grep user@19.168.0.2:/usr/local/bin
